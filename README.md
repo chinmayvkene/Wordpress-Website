@@ -38,6 +38,7 @@
 ---
  version: '3'
  services:
+ 
     wordpress:
         image: wordpress
         restart: always
@@ -51,7 +52,8 @@
         secrets:
             - db_password
         volumes:
-            - wordpress:/var/www/html        
+            - wordpress:/var/www/html    
+            
     db:
         image: mysql:5.7.28
         ports:
@@ -67,7 +69,8 @@
         volumes:
             - db:/var/lib/mysql
         networks:
-            - default         
+            - default 
+            
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         links:
@@ -81,11 +84,13 @@
         secrets:
             - db_password
             - db_root_password
+            
 secrets:
     db_password:
         file: db_password.txt    
     db_root_password:
         file: db_root_password.txt
+        
 volumes:
     wordpress:
     db:
