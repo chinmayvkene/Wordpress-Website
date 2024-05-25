@@ -23,8 +23,8 @@
 
    # Install Docker Compose
    - curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-   - sudo ln -s /usr/local/bin/docker-compose /usr/local/bin/docker-compose
-   - sudo chmod +x /usr/local/bin/docker-compose
+   - sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   - sudo chmod -R 777 /usr/local/bin/docker-compose /usr/bin/docker-compose
    
 ### 3. Run the Containers Using Docker-Compose
    Create a directory and navigate into it:
@@ -70,21 +70,7 @@ services:
             - db:/var/lib/mysql
         networks:
             - default 
-            
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        links:
-            - db:db
-        ports:
-            - 8282:80
-        environment:
-            MYSQL_USER: user1
-            MYSQL_PASSWORD_FILE: /run/secrets/db_password
-            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
-        secrets:
-            - db_password
-            - db_root_password
-            
+                    
 secrets:
     db_password:
         file: db_password.txt    
