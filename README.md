@@ -36,9 +36,8 @@
    Create a `docker-compose.yaml` file with the following content:
    
 ---
-`version: '3'
-
-services:
+ version: '3'
+ services:
 
     wordpress:
         image: wordpress
@@ -86,15 +85,15 @@ services:
             - db_password
             - db_root_password
             
-secrets:
+ secrets:
     db_password:
         file: db_password.txt
     db_root_password:
         file: db_root_password.txt
         
-volumes:
+ volumes:
     wordpress:
-    db:`
+    db:
 
    Run the following command to start the containers:
 
