@@ -15,22 +15,22 @@
 ### 2. Install Docker and Docker-Compose
    Connect to your EC2 instance via SSH and run the following commands:
    
-   sudo yum update -y
-   sudo yum install docker -y
-   sudo systemctl start docker
-   sudo systemctl enable docker
-   sudo usermod -aG docker ec2-user
+   - sudo yum update -y
+   - sudo yum install docker -y
+   - sudo systemctl start docker
+   - sudo systemctl enable docker
+   - sudo usermod -aG docker ec2-user
 
    # Install Docker Compose
-   curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-   sudo ln -s /usr/local/bin/docker-compose /usr/local/bin/docker-compose
-   sudo chmod +x /usr/local/bin/docker-compose
+   - curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+   - sudo ln -s /usr/local/bin/docker-compose /usr/local/bin/docker-compose
+   - sudo chmod +x /usr/local/bin/docker-compose
    
 ### 3. Run the Containers Using Docker-Compose
    Create a directory and navigate into it:
    
-   mkdir wordpress-docker
-   cd wordpress-docker
+   - mkdir wordpress-docker
+   - cd wordpress-docker
    
 
    Create a `docker-compose.yaml` file with the following content:
@@ -97,29 +97,29 @@ volumes:
 
    Run the following command to start the containers:
 
-   docker-compose up -d
+   -ndocker-compose up -d
 
 ### 4. Install and Start NGINX
  
-   sudo amazon-linux-extras install nginx1 -y
-   sudo systemctl start nginx
-   sudo systemctl enable nginx
+   - sudo amazon-linux-extras install nginx1 -y
+   - sudo systemctl start nginx
+   - sudo systemctl enable nginx
  
 ### 5. Access WordPress Website
    Access the WordPress website using the public IP of your EC2 instance on port 8080:
 
-   http://<PublicIP>:8080
+   `http://<PublicIP>:8080`
 
    Set up your WordPress site name, username, and password.
 
 ### 6. Configure NGINX as a Reverse Proxy
    Stop NGINX before making configuration changes:
    
-   sudo systemctl stop nginx
+   - sudo systemctl stop nginx
 
    Edit the NGINX configuration file:
 
-   sudo vi /etc/nginx/nginx.conf
+    -sudo vi /etc/nginx/nginx.conf
 
    Add the following location block inside the `server` block:
  
@@ -129,12 +129,12 @@ volumes:
  
    Start NGINX:
   
-   sudo systemctl start nginx
+   - sudo systemctl start nginx
    
 ### 7. Access WordPress Website via the EC2 Instance IP
    You should now be able to access your WordPress website using the public IP of your EC2 instance:
  
-   http://<PublicIP>
+   `http://<PublicIP>`
   
 ## Additional Notes
 - Ensure that the security group associated with your EC2 instance allows traffic on ports 80 (HTTP) and 8080.
