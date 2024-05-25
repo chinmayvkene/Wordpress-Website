@@ -97,7 +97,7 @@ volumes:
 
    Run the following command to start the containers:
 
-   -ndocker-compose up -d
+   - docker-compose up -d
 
 ### 4. Install and Start NGINX
  
@@ -119,7 +119,7 @@ volumes:
 
    Edit the NGINX configuration file:
 
-    -sudo vi /etc/nginx/nginx.conf
+   - sudo vi /etc/nginx/nginx.conf
 
    Add the following location block inside the `server` block:
  
