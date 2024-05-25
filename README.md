@@ -37,6 +37,7 @@
    
 ---
  version: '3'
+ 
  services:
 
     wordpress:
@@ -86,13 +87,19 @@
             - db_root_password
             
  secrets:
+ 
     db_password:
+    
         file: db_password.txt
+        
     db_root_password:
+    
         file: db_root_password.txt
         
  volumes:
+ 
     wordpress:
+    
     db:
 
    Run the following command to start the containers:
