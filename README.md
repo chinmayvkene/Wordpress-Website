@@ -37,6 +37,7 @@
    
 ---
 version: '3'
+
 services:
 
     wordpress:
