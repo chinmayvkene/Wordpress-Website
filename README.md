@@ -123,9 +123,9 @@ volumes:
 
    Add the following location block inside the `server` block:
  
-   -location / {
+    -location / {
        proxy_pass http://127.0.0.1:8080/wp-admin/;
-   }
+     }
  
    Start NGINX:
   
