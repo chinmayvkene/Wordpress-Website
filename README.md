@@ -19,7 +19,7 @@
    - sudo yum install docker -y
    - sudo systemctl start docker
    - sudo systemctl enable docker
-   - sudo usermod -aG docker ec2-user
+   - sudo usermod -aG docker $USER
 
    # Install Docker Compose
    - curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
