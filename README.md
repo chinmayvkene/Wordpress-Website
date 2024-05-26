@@ -11,7 +11,7 @@
 
 #### 1. Launch EC2 Instance
 - **Instance Type:** t2.micro
-- **Operating System:** Amazon Linux Kernel 5.10
+- **AMI:** Amazon Linux Kernel 5.10 hvm
 
 #### 2. Install Docker and Docker-Compose
 Connect to your EC2 instance via SSH and run the following commands:
@@ -309,47 +309,6 @@ Add the following configuration:
         /bin/kill -USR1 `cat /run/nginx.pid 2>/dev/null` 2>/dev/null || true
     endscript
 }
-```
-
-#### 10. Script for Logrotate
-Create a script for log rotation:
-
-```sh
-cd /root/aws 
-vi logrotate.sh
-```
-
-Add the following content to `logrotate.sh`:
-
-```bash
-#!/bin/bash
-
-logrotate -f /etc/logrotate.conf
-```
-
-Make the script executable:
-
-```sh
-chmod -R 777 logrotate.sh
-```
-
-#### 11. Setup Crontab for Logrotate
-Edit the crontab to schedule the logrotate script:
-
-```sh
-crontab -e
-```
-
-Add the following line to run the script daily at 11 AM:
-
-```sh
-0 11 * * * sh /root/aws/logrotate.sh
-```
-
-Verify the crontab entry:
-
-```sh
-crontab -l
 ```
 
 ### Additional Notes
